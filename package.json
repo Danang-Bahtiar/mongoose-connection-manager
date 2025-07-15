@@ -1,0 +1,36 @@
+{
+  "name": "mongoose-connection-manager",
+  "version": "1.0.0",
+  "description": "A lightweight utility to manage multiple Mongoose connections with ease.",
+  "main": "src/cjs/index.cjs",
+  "module": "src/mjs/index.mjs",
+  "exports": {
+    "require": "./src/cjs/index.cjs",
+    "import": "./src/mjs/index.mjs"
+  },
+  "type": "module",
+  "author": "Dan Koyuki",
+  "license": "MIT",
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "connection",
+    "manager",
+    "multi-database",
+    "orm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Danang-Bahtiar/mongoose-connection-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Danang-Bahtiar/mongoose-connection-manager/issues"
+  },
+  "homepage": "https://github.com/Danang-Bahtiar/mongoose-connection-manager#readme",
+  "dependencies": {
+    "mongoose": "^8.16.3"
+  },
+  "files": [
+    "src"
+  ]
+}
