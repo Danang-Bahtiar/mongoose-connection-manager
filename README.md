@@ -1,3 +1,5 @@
+#### Readme not updated, however some function is stay same!
+
 # Mongoose Connection Manager
 
 A lightweight and modular class for managing **multiple MongoDB connections** using Mongoose. Supports easy creation, retrieval, monitoring, and cleanup of named connections.

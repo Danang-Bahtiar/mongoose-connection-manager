@@ -1,1 +1,0 @@
-export {default as mongooseConnectionManager} from './connector.handler.mjs'
