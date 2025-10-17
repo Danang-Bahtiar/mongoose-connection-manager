@@ -1,12 +1,24 @@
 {
-  "name": "@dan_koyuki/mongoose-connection-manager",
-  "version": "1.1.2",
+  "name": "@dan_koyuki/myriad",
+  "version": "2.0.1",
   "description": "A lightweight utility to manage multiple Mongoose connections with ease.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=16.11.0"
+  },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node --esm src/index.ts",
+    "prepare": "npm run build"
   },
   "author": "Dan Koyuki",
   "license": "MIT",
@@ -27,14 +39,16 @@
   },
   "homepage": "https://github.com/Danang-Bahtiar/mongoose-connection-manager#readme",
   "peerDependencies": {
-    "mongoose": "^8.16.4"
+    "mongoose": "^8.16.4",
+    "glob": "^11.0.3"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
     "@types/node": "^24.1.0",
+    "mongoose": "^8.16.4",
     "typescript": "^5.8.3",
-    "mongoose": "^8.16.4"
+    "glob": "^11.0.3"
   }
 }

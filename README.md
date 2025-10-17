@@ -1,4 +1,5 @@
-#### Readme not updated, however some function is stay same!
+# READ ME NOT UPDATED, Module change from Mongoose Connection Manager to MyriadJS.
+# READ ME and JSDocs will be updated on next update.
 
 # Mongoose Connection Manager
 
