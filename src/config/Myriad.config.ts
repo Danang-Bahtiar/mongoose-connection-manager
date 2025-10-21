@@ -18,5 +18,5 @@ export interface RecordConfig {
     uri?: string,
     modelName: string,
     modelSchema: Schema,
-    modelModule: string
+    modelModule: string | any
 }

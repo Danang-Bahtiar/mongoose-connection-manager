@@ -48,7 +48,7 @@ export const moduleLoader = async (
     }
 
     const instance = new ModuleClass(connection, record.modelName, record.modelSchema);
-    app[record.modelModule] = instance;
+    app[record.modelName] = instance;
     app.registerModule(name, instance);
 
     console.log(`  ✔️  Initialized & Registered: ${name} (as ${record.modelModule})`);
