@@ -36,7 +36,7 @@ export const moduleLoader = async (
       continue;
     }
 
-    const connection = app.getConnectionManager().getOrCreateConnection(name, uri);
+    const connection = await app.getConnectionManager().getOrCreateConnection(name, uri);
 
     const ModuleClass = isLibraryMode
       ? record.modelModule
