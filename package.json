@@ -1,6 +1,6 @@
 {
   "name": "@dan_koyuki/myriad",
-  "version": "2.0.1",
+  "version": "2.0.5",
   "description": "A lightweight utility to manage multiple Mongoose connections with ease.",
   "type": "module",
   "main": "./dist/index.js",
