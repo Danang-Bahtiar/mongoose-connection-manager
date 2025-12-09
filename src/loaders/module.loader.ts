@@ -69,7 +69,7 @@ export const moduleLoader = async (
 
     // ALIGNMENT: Pad the names so the status messages line up perfectly
     const formattedModel = record.modelName.padEnd(15, " ");
-    const formattedModule = record.modelModule.padEnd(20, " ");
+    const formattedModule = record.moduleName.padEnd(20, " ");
 
     if (!uri) {
       console.warn(
