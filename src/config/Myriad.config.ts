@@ -9,7 +9,6 @@ export interface ExtendedMyriad extends Myriad {
 export interface MyriadConfig{
     useGlobalUri: boolean,
     globalUri?: string,
-    libMode: boolean,
     records: RecordConfig[]
 }
 

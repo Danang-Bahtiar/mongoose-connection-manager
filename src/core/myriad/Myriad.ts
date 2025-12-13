@@ -35,7 +35,6 @@ class Myriad {
   static init = async () => {
     // 1. Initialize Core
     const app: ExtendedMyriad = new Myriad();
-    app["test"] = "test";
 
     // 2. Load Configuration
     printSectionHeader("CONFIGURATION");
@@ -49,7 +48,6 @@ class Myriad {
       app,
       config.records,
       config.useGlobalUri ? config.globalUri : undefined,
-      config.libMode
     );
 
     // 4. (Optional) Hook for other modules mentioned in your prompt
@@ -114,7 +112,6 @@ class Myriad {
       this,
       config.records,
       config.useGlobalUri ? config.globalUri : undefined,
-      config.libMode
     );
   };
 }
