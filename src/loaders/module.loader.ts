@@ -18,8 +18,7 @@ const style = {
 export const moduleLoader = async (
   app: ExtendedMyriad,
   records: RecordConfig[],
-  globalUri?: string,
-  isLibraryMode = false
+  globalUri?: string
 ) => {
   // console.log(
   //   `\n${style.bright}${style.cyan}[Myriad] 🚀 Initializing ${
@@ -27,40 +26,40 @@ export const moduleLoader = async (
   //   } Mode...${style.reset}\n`
   // );
 
-  const availableModules = new Map<string, any>();
+  // const availableModules = new Map<string, any>();
 
-  // --- 1. DISCOVERY PHASE ---
-  if (!isLibraryMode) {
-    const searchPath = path.resolve(process.cwd(), "./src/modules");
-    console.log(
-      `${style.dim}   Mapping directory: ${searchPath}${style.reset}`
-    );
+  // // --- 1. DISCOVERY PHASE ---
+  // if (!isLibraryMode) {
+  //   const searchPath = path.resolve(process.cwd(), "./src/modules");
+  //   console.log(
+  //     `${style.dim}   Mapping directory: ${searchPath}${style.reset}`
+  //   );
 
-    const moduleDir = path
-      .join(searchPath, "/**/*.{module.ts,module.js}")
-      .replace(/\\/g, "/");
-    const files = await glob(moduleDir);
+  //   const moduleDir = path
+  //     .join(searchPath, "/**/*.{module.ts,module.js}")
+  //     .replace(/\\/g, "/");
+  //   const files = await glob(moduleDir);
 
-    if (files.length === 0) {
-      console.log(
-        `${style.yellow}   [WARN] No module files found in scan.${style.reset}`
-      );
-    }
+  //   if (files.length === 0) {
+  //     console.log(
+  //       `${style.yellow}   [WARN] No module files found in scan.${style.reset}`
+  //     );
+  //   }
 
-    for (const file of files) {
-      const filePath = `file://${file.replace(/\\/g, "/")}`;
-      // Add timestamp to bust cache if needed, though usually not needed in prod
-      const moduleFile = await import(`${filePath}?update=${Date.now()}`);
-      const ModuleClass = moduleFile.default;
+  //   for (const file of files) {
+  //     const filePath = `file://${file.replace(/\\/g, "/")}`;
+  //     // Add timestamp to bust cache if needed, though usually not needed in prod
+  //     const moduleFile = await import(`${filePath}?update=${Date.now()}`);
+  //     const ModuleClass = moduleFile.default;
 
-      availableModules.set(ModuleClass.name.toLowerCase(), ModuleClass);
-      // Clean, indented log for discovery
-      console.log(
-        `   ${style.blue}├─ 🔍 Discovered:${style.reset} ${ModuleClass.name}`
-      );
-    }
-    console.log(""); // Empty line for separation
-  }
+  //     availableModules.set(ModuleClass.name.toLowerCase(), ModuleClass);
+  //     // Clean, indented log for discovery
+  //     console.log(
+  //       `   ${style.blue}├─ 🔍 Discovered:${style.reset} ${ModuleClass.name}`
+  //     );
+  //   }
+  //   console.log(""); // Empty line for separation
+  // }
 
   // --- 2. CONSTRUCTION PHASE ---
   for (const record of records) {
@@ -82,9 +81,11 @@ export const moduleLoader = async (
       .getConnectionManager()
       .getOrCreateConnection(name, uri);
 
-    const ModuleClass = isLibraryMode
-      ? record.modelModule
-      : availableModules.get(record.modelModule.toLowerCase());
+    // const ModuleClass = isLibraryMode
+    //   ? record.modelModule
+    //   : availableModules.get(record.modelModule.toLowerCase());
+
+    const ModuleClass = record.modelModule;
 
     if (!ModuleClass) {
       console.warn(
